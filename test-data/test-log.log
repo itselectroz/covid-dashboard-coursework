@@ -1,4 +1,4 @@
-<2021-11-29 12:47:58.064051> [ERROR] Examplar Error
+<2021-11-29 13:14:02.026540> [ERROR] Examplar Error
   File "/Users/harrywhittle/opt/anaconda3/envs/coursework/bin/pytest", line 8, in <module>
     sys.exit(console_main())
 

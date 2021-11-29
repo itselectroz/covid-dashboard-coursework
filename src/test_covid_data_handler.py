@@ -21,7 +21,7 @@ def test_parse_csv_data():
     """
     This test ensures parse_csv_data returns the correct number of results.
     """
-    data = parse_csv_data('../resources/nation_2021-10-28.csv')
+    data = parse_csv_data('./resources/nation_2021-10-28.csv')
     assert len(data) == 639
 
 def test_process_covid_csv_data():
@@ -29,7 +29,7 @@ def test_process_covid_csv_data():
     This test ensures process_covid_csv_data correctly processes the csv data.
     """
     last7day_cases, current_hospital_cases, total_deaths = process_covid_csv_data(
-        parse_csv_data('../resources/nation_2021-10-28.csv')
+        parse_csv_data('./resources/nation_2021-10-28.csv')
     )
     assert last7day_cases == 240_299
     assert current_hospital_cases == 7_019
