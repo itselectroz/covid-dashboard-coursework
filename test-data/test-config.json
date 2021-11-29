@@ -1,0 +1,15 @@
+{
+    "foo": "bar",
+    "object": {
+        "a": 1,
+        "b": 2
+    },
+    "logging": {
+        "enabled": true,
+        "debug": true,
+        "path": "./test-data/test-log.log",
+        "use_file": true,
+        "dump_debug_on_error": true,
+        "dump_debug_count": 10
+    }
+}
