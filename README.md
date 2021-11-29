@@ -1,37 +1,56 @@
-# axios
+# Covid Dashboard
 
 ![Build status](https://github.com/itselectroz/covid-dashboard-coursework/actions/workflows/python-test.yml/badge.svg)
 
-Promise based HTTP client for the browser and node.js
+Automatic covid dashboard for displaying accurate, up to date covid data and news.
 
 ## Table of Contents
 
-  - [Features](#features)
-  - [Browser Support](#browser-support)
-  - [Installing](#installing)
-  - [Example](#example)
-  - [Axios API](#axios-api)
-  - [Request method aliases](#request-method-aliases)
-  - [Concurrency (Deprecated)](#concurrency-deprecated)
-  - [Creating an instance](#creating-an-instance)
-  - [Instance methods](#instance-methods)
-  - [Request Config](#request-config)
-  - [Response Schema](#response-schema)
-  - [Config Defaults](#config-defaults)
-    - [Global axios defaults](#global-axios-defaults)
-    - [Custom instance defaults](#custom-instance-defaults)
-    - [Config order of precedence](#config-order-of-precedence)
-  - [Interceptors](#interceptors)
-  - [Handling Errors](#handling-errors)
-  - [Cancellation](#cancellation)
-  - [Using application/x-www-form-urlencoded format](#using-applicationx-www-form-urlencoded-format)
-    - [Browser](#browser)
-    - [Node.js](#nodejs)
-      - [Query string](#query-string)
-      - [Form data](#form-data)
-  - [Semver](#semver)
-  - [Promises](#promises)
-  - [TypeScript](#typescript)
-  - [Resources](#resources)
-  - [Credits](#credits)
-  - [License](#license)
+ - [Features](#features)
+ - [Installing](#installing)
+ - [Running](#running)
+
+## Features
+
+## Installing
+
+Installing the dashboard is simple.
+
+Ensure pip is up to date  
+`python -m pip install –upgrade pip`
+
+Install the required pip modules using the following command  
+`python -m pip install -r requirements.txt`
+
+## Running
+
+Running the dashboard is easy. You have two options;
+
+- [Using the main module](#main_module)
+- [Flask's CLI](#flask_cli)
+
+### Main Module
+
+Assuming you have python installed simply run
+
+`python src/main.py`
+
+### Flask CLI
+
+First you need to export the necessary variables
+
+#### CMD
+
+`set FLASK_APP="src/main.py"`
+
+#### Powershell
+
+`$env:FLASK_APP="src/main.py"`
+
+#### Bash
+
+`export FLASK_APP="src/main.py"`
+
+Then finally run the app using
+
+`flask run`
