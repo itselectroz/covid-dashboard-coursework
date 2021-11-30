@@ -225,7 +225,7 @@ def index() -> str:
 
     return render_template('index.html',
         title = template_config['title'],
-        favicon = template_config['favicon'],
+        favicon = f"/static/images/{template_config['favicon']}",
         image = template_config['logo'],
         location = config['location'],
         nation_location = config['nation_location'],

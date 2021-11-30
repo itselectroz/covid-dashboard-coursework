@@ -115,7 +115,7 @@ def update_news() -> None:
     """
     global news_articles
 
-    articles = news_API_request()
+    articles = news_API_request(get_config("search_terms"))
 
     filtered_articles = []
 
