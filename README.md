@@ -136,4 +136,13 @@ The number of debug messages to log.
 
 ### Template
 
+**title** : string  
+The title to display at the top of the template page.
+
+**logo** : string  
+The logo image path relative to `/static/images/` (where /static/ is the static directory)  
+
+**favicon** : string  
+The favicon image path relative to `/static/images/` (where /static/ is the static directory)  
+
 ### Core
