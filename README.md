@@ -1,14 +1,18 @@
 # Covid Dashboard
 
 ![Build status](https://github.com/itselectroz/covid-dashboard-coursework/actions/workflows/python-test.yml/badge.svg)
+[![Documentation](https://img.shields.io/badge/docs-%20sphinx-blue)](https://itselectroz.github.io/covid-dashboard-coursework)
 
 Automatic covid dashboard for displaying accurate, up to date covid data and news.
+
+Documentation can be found [here](https://itselectroz.github.io/covid-dashboard-coursework).
 
 ## Table of Contents
 
  - [Features](#features)
  - [Installing](#installing)
  - [Running](#running)
+ - [Documentation](#documentation)
  - [Config File](#config_file)
    - [Logging](#logging)
    - [Template](#template)
@@ -74,6 +78,19 @@ Then run the app using
     flask run
 
 This will start the interface at `127.0.0.1:5000/index` which can simply be navigated to with any web browser.
+
+## Documentation
+
+This project uses Sphinx's documentation generator!
+
+The documentation can be accessed [here](https://itselectroz.github.io/covid-dashboard-coursework).
+
+### Rebuilding Documentation
+
+Firstly, delete the `html` and `doctrees` directories in `docs/`.  
+Secondly in the `docs` directory run:
+
+    make html
 
 ## Config File
 
