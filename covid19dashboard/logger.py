@@ -20,7 +20,7 @@ from datetime import datetime
 from traceback import format_exception, format_stack
 from typing import List
 
-from src.config import get_config
+from .config import get_config
 
 # Used to store a history of debug messages
 # Used by

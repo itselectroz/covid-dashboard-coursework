@@ -8,8 +8,8 @@ like since they all use the print function.
 
 from os import path, remove
 
-import src.config as config
-import src.logger as logger
+import covid19dashboard.config as config
+import covid19dashboard.logger as logger
 
 def reset_test_environment():
     """

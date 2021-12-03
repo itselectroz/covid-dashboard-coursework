@@ -10,7 +10,7 @@ The following functions are not testable for various reasons:
  - remove_article_by_title
 """
 
-import src.covid_news_handler as covid_news_handler
+import covid19dashboard.covid_news_handler as covid_news_handler
 
 def reset_test_environment():
     """

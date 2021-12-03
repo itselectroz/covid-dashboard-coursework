@@ -33,7 +33,7 @@ import time
 from types import FunctionType
 from typing import Dict
 
-from src.logger import log_error
+from .logger import log_error
 
 scheduler = sched.scheduler(time.time, time.sleep)
 
