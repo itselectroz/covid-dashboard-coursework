@@ -1,4 +1,4 @@
-"""covid news handler module
+"""covid_news_handler
 
 This module is used for everything related to fetching covid news articles
 

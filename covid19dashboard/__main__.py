@@ -1,4 +1,4 @@
-"""main module
+"""main
 
 The main module for handling initial scheduling, flask app initialisation and flask routes.
 

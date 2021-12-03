@@ -1,4 +1,4 @@
-"""covid data handler module
+"""covid_data_handler
 
 This module is used for everything related to fetching
 and processing covid data.

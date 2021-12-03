@@ -1,4 +1,4 @@
-"""scheduler module
+"""scheduler
 
 A module for scheduling tasks to be run at a future time.
 

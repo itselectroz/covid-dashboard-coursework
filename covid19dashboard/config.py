@@ -1,4 +1,4 @@
-"""config module
+"""config
 
 This module controls the fetching and caching of the config file
 

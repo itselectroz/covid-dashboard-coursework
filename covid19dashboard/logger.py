@@ -1,4 +1,4 @@
-"""logger module
+"""logger
 
 This module implements the core logging features to trace program execution
 
