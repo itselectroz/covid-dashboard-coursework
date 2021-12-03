@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>covid19dashboard package &mdash; Covid19 Dashboard  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Covid19 Dashboard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">covid19dashboard package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.config">covid19dashboard.config module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.covid_data_handler">covid19dashboard.covid_data_handler module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.covid_news_handler">covid19dashboard.covid_news_handler module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.logger">covid19dashboard.logger module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.scheduler">covid19dashboard.scheduler module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Covid19 Dashboard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>covid19dashboard package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/covid19dashboard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="covid19dashboard-package">
+<h1>covid19dashboard package<a class="headerlink" href="#covid19dashboard-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-covid19dashboard.config">
+<span id="covid19dashboard-config-module"></span><h2>covid19dashboard.config module<a class="headerlink" href="#module-covid19dashboard.config" title="Permalink to this headline"></a></h2>
+<p>config module</p>
+<p>This module controls the fetching and caching of the config file</p>
+<dl class="simple">
+<dt>It exports the following functions:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>get_config(index=None, filename=”./config.json”)</dt><dd><dl class="simple">
+<dt>-&gt; returns the config dictionary (at the specified index if it</dt><dd><p>is specified) and loads &amp; caches it if needed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>It also consists of the following internal functions:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>fetch_config(filename=”./config.json”)</dt><dd><p>-&gt; returns the config dictionary and loads &amp; caches it if needed</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.config.fetch_config">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.config.</span></span><span class="sig-name descname"><span class="pre">fetch_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./config.json'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.config.fetch_config" title="Permalink to this definition"></a></dt>
+<dd><p>Fetches and caches the configuration file.</p>
+<p>The file should be a JSON file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is intended to load a SINGLE configuration file throughout a program’s
+lifespan. This means it will used the cached configuration file even if the filepath
+is different!</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Throws FileNotFoundError if the file does not exist.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The configuration object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.config.get_config">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.config.</span></span><span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./config.json'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#covid19dashboard.config.get_config" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps fetch_config with the ability to index the given configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>str</em>) – The key in the config to index and return</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – The path to the config file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The configuration object/value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-covid19dashboard.covid_data_handler">
+<span id="covid19dashboard-covid-data-handler-module"></span><h2>covid19dashboard.covid_data_handler module<a class="headerlink" href="#module-covid19dashboard.covid_data_handler" title="Permalink to this headline"></a></h2>
+<p>covid data handler module</p>
+<p>This module is used for everything related to fetching
+and processing covid data.</p>
+<dl>
+<dt>It exports the following functions</dt><dd><ul class="simple">
+<li><p>parse_csv_data(csv_filename) -&gt; returns a list of strings for each row in the file</p></li>
+<li><dl class="simple">
+<dt>process_covid_csv_data(covid_csv_data)</dt><dd><dl class="simple">
+<dt>-&gt; returns number of cases in the last 7 days, current number of hospital cases</dt><dd><p>and the cumulative number of deaths</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>schedule_covid_updates(update_interval, update_name, repeat=False, absolute=True)</dt><dd><p>-&gt; schedules a covid data update at the given time interval</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>It exports the following variables</dt><dd><ul>
+<li><dl>
+<dt>covid_data<span class="classifier">dictionary</span></dt><dd><dl class="simple">
+<dt>{</dt><dd><dl class="simple">
+<dt>nationalCases7Days<span class="classifier">number</span></dt><dd><p>-&gt; number of new national COVID-19 cases in the last 7 days</p>
+</dd>
+<dt>nationalHospitalCases<span class="classifier">number</span></dt><dd><p>-&gt; current number of national hospitalised COVID-19 cases</p>
+</dd>
+<dt>nationalCumDeaths<span class="classifier">number</span></dt><dd><p>-&gt; current cumulative number of national deaths due to COVID-19</p>
+</dd>
+<dt>localCases7Days<span class="classifier">number</span></dt><dd><p>-&gt; number of new local COVID-19 cases in the last 7 days</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>It defines the following internal functions</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>covid_API_request(location = “Exeter”, location_type = “ltla”)</dt><dd><p>-&gt; Returns the latest covid data from the UK Covid-19 API as an object</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>find_first_valid_entry(data: List[Dict], key: str)</dt><dd><p>-&gt; Finds the first index in the list where key is not None</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>calculate_7_day_cases(data: List[Dict])</dt><dd><dl class="simple">
+<dt>-&gt; Given a list of covid data, it will return the sum of the last 7 days of</dt><dd><p>valid case data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>perform_covid_update()</dt><dd><p>-&gt; Handles calling covid_API_request and then updating the covid_data global.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.calculate_7_day_cases">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">calculate_7_day_cases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.calculate_7_day_cases" title="Permalink to this definition"></a></dt>
+<dd><p>Given a list of covid data, it will return the sum of the
+last 7 days of valid case data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – <p>A list of covid data
+The dictionary should contain</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>newCasesBySpecimenDate : int | None</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cumulative number of cases over 7 days</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.covid_API_request">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">covid_API_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Exeter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ltla'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.covid_API_request" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the latest covid data from the UK Covid-19 API as an object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>https</strong> (<em>//coronavirus.data.gov.uk/details/developers-guide/main-api#params-filters</em>) – </p>
+</dd>
+</dl>
+<dl>
+<dt>location<span class="classifier">str</span></dt><dd><p>default = “Exeter”
+The location in which to query data from</p>
+</dd>
+<dt>location_type<span class="classifier">str</span></dt><dd><p>default = “ltla”
+The type of location used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>overview</p></li>
+<li><p>nation</p></li>
+<li><p>region</p></li>
+<li><p>nhsRegion</p></li>
+<li><p>utla</p></li>
+<li><p>ltla</p></li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>Response data</p>
+<p>Below is an example of response data
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>’data’: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>‘date’: ‘2021-11-02’,
+‘areaName’: ‘England’,
+‘areaCode’: ‘E92000001’,
+‘newCasesBySpecimenDate’: 547,
+‘hospitalCases’: 7362,
+‘cumDeaths60DaysByPublishDate’: 141544</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>],
+‘lastUpdate’: ‘2021-11-02T11:04:34.587Z’,
+‘length’: 140,
+‘totalPages’: 1</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.find_first_valid_entry">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">find_first_valid_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.find_first_valid_entry" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the first index in the list where key is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – The list of data
+Data must contain the key given as a parameter</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – The key to check</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Index of the first valid entry</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.parse_csv_data">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">parse_csv_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.parse_csv_data" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the data rows from a csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>csv_filename</strong> (<em>str</em>) – The file location of the csv file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>lines</strong> – A list of strings for each row in the file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.perform_covid_update">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">perform_covid_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.perform_covid_update" title="Permalink to this definition"></a></dt>
+<dd><p>Handles calling covid_API_request and then updating the covid_data global.</p>
+<p>It uses &amp; modifies the covid_data global variable.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.process_covid_csv_data">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">process_covid_csv_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#covid19dashboard.covid_data_handler.process_covid_csv_data" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the number of cases in the last 7 days, current number of hospital
+cases and the cumulative number of deaths based on the given data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_lines</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Covid CSV data as an array of strings, representing each line of the file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>number</em> – number of cases in the last 7 days</p></li>
+<li><p><em>number</em> – current number of hospital cases</p></li>
+<li><p><em>number</em> – cumulative number of deaths</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_data_handler.schedule_covid_updates">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_data_handler.</span></span><span class="sig-name descname"><span class="pre">schedule_covid_updates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.covid_data_handler.schedule_covid_updates" title="Permalink to this definition"></a></dt>
+<dd><p>Schedules a covid update at the given absolute time interval with a given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update_interval</strong> (<em>number</em>) – The absolute time at which to run the update</p></li>
+<li><p><strong>update_name</strong> (<em>string</em>) – The name for the update</p></li>
+<li><p><strong>repeat</strong> (<em>bool</em>) – default -&gt; False
+Whether or not the update should repeat at the given update_interval</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>event</strong> – See scheduler.queue_task</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Event dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-covid19dashboard.covid_news_handler">
+<span id="covid19dashboard-covid-news-handler-module"></span><h2>covid19dashboard.covid_news_handler module<a class="headerlink" href="#module-covid19dashboard.covid_news_handler" title="Permalink to this headline"></a></h2>
+<p>covid news handler module</p>
+<p>This module is used for everything related to fetching covid news articles</p>
+<dl class="simple">
+<dt>It exports the following functions</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>news_API_request(covid_terms: str)</dt><dd><p>-&gt; fetches news articles using newsapi based on given terms, separated by space</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>update_news()</dt><dd><p>-&gt; updates the news_articles array with new news articles using news_API_request</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>add_removed_article(article)</dt><dd><dl class="simple">
+<dt>-&gt; This function adds an article to the removed list, preventing it from being</dt><dd><p>displayed again.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>remove_article_by_title(title)</dt><dd><p>-&gt; Removes an article from news_articles by the article’s title.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>schedule_news_updates(update_interval, update_name, repeat=False, absolute=False)</dt><dd><p>-&gt; Schedules a news update at the given interval with a given name.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>It exports the following variables</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>news_articles<span class="classifier">list[Article]</span></dt><dd><p>-&gt; a list of articles that have been filtered to not include removed articles</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.add_removed_article">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">add_removed_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.add_removed_article" title="Permalink to this definition"></a></dt>
+<dd><p>This function adds an article to the removed list, preventing it from being
+displayed again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>article</strong> (<em>Article</em>) – <p>The article to remove.
+It should contain the following fields</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url : str</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.news_API_request">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">news_API_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">covid_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Covid</span> <span class="pre">COVID-19</span> <span class="pre">coronavirus'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.news_API_request" title="Permalink to this definition"></a></dt>
+<dd><p>This function fetches news articles using newsapi based on the given search terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>covid_terms</strong> (<em>str</em>) – default = “Covid COVID-19 coronavirus”
+This parameter is used to query for news articles.
+Each keyword is separated by a space.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>returns a list of articles, each article is a dictionary with the following structure:
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>’source’: {</dt><dd><p>‘id’: str,
+‘name’: str</p>
+</dd>
+</dl>
+<p>},
+‘author’: str,
+‘title’: str,
+‘description’: str,
+‘url’: str,
+‘urlToImage’: str,
+‘publishedAt’: str,
+‘content’: str</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.remove_article_by_title">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">remove_article_by_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.remove_article_by_title" title="Permalink to this definition"></a></dt>
+<dd><p>Removes an article from news_articles by the article’s title.
+It will also use add_removed_article to prevent the article from being shown again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>title</strong> (<em>str</em>) – The title of the article to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.schedule_news_updates">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">schedule_news_updates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.schedule_news_updates" title="Permalink to this definition"></a></dt>
+<dd><p>Schedules a news update at the given interval with a given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update_interval</strong> (<em>number</em>) – The absolute time at which to run the update</p></li>
+<li><p><strong>update_name</strong> (<em>string</em>) – The name for the update</p></li>
+<li><p><strong>repeat</strong> (<em>bool</em>) – default -&gt; False
+Whether or not the update should repeat at the given update_interval</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>event</strong> – See scheduler.queue_task</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Event dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.update_news">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">update_news</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.update_news" title="Permalink to this definition"></a></dt>
+<dd><p>This function replaces news_articles with updated and filtered articles</p>
+<p>It filters based on removed articles’ urls.</p>
+</dd></dl>
+
+</section>
+<section id="module-covid19dashboard.logger">
+<span id="covid19dashboard-logger-module"></span><h2>covid19dashboard.logger module<a class="headerlink" href="#module-covid19dashboard.logger" title="Permalink to this headline"></a></h2>
+<p>logger module</p>
+<p>This module implements the core logging features to trace program execution</p>
+<p>It exports the following functions</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>log_debug(message: str)</dt><dd><p>-&gt; logs a message under a debug tag, does not write to a log file</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>log_info(message: str)</dt><dd><p>-&gt; logs a message under an info tag, writes to a log file</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>log_error(message: str)</dt><dd><dl class="simple">
+<dt>-&gt; logs a message under an error tag with a stack trace, writes to a log file,</dt><dd><p>it includes a stack trace in the log optionally dumps recent debug messages.
+That functionality is configurable in the config file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.logger.log_debug">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.logger.</span></span><span class="sig-name descname"><span class="pre">log_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.logger.log_debug" title="Permalink to this definition"></a></dt>
+<dd><p>Logs a message under a debug tag if debug logging is enabled.
+Does not write to a log file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message to log</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.logger.log_error">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.logger.</span></span><span class="sig-name descname"><span class="pre">log_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.logger.log_error" title="Permalink to this definition"></a></dt>
+<dd><p>Logs a message under an error tag if logging is enabled.
+It will include a stack trace in this log.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message to log</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.logger.log_info">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.logger.</span></span><span class="sig-name descname"><span class="pre">log_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.logger.log_info" title="Permalink to this definition"></a></dt>
+<dd><p>Logs a message under an info tag if logging is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message to log</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-covid19dashboard.scheduler">
+<span id="covid19dashboard-scheduler-module"></span><h2>covid19dashboard.scheduler module<a class="headerlink" href="#module-covid19dashboard.scheduler" title="Permalink to this headline"></a></h2>
+<p>scheduler module</p>
+<p>A module for scheduling tasks to be run at a future time.</p>
+<p>Queuing a task will start the scheduler</p>
+<dl class="simple">
+<dt>This module exports the following functions</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>queue_task(name, function, update_time, absolute=False, repeat=False)</dt><dd><p>-&gt; Queues a task to the scheduler with relative/absolute timing</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cancel_task(event)</dt><dd><p>-&gt; Cancels a task from being run by the scheduler</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cancel_task_by_name(event_name)</dt><dd><p>-&gt; Cancels a task from being run by the scheduler based on the name of the task</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>run_scheduler()</dt><dd><p>-&gt; Runs the tasks in the scheduler.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>It also consists of the following internal functions</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>create_wrapper(function, event)</dt><dd><dl class="simple">
+<dt>-&gt; Creates a wrapper function around the given function,</dt><dd><p>which removes it from the scheduled_update array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>create_repeating_wrapper(function, event)</dt><dd><dl class="simple">
+<dt>-&gt; Creates a wrapper function around the given function,</dt><dd><p>which reschedules the event.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.cancel_task">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">cancel_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.cancel_task" title="Permalink to this definition"></a></dt>
+<dd><p>Cancels an event from being run by the scheduler and removes it from the scheduled_updates array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>Event dictionary</em>) – The event object returned by queue_task</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Whether or not the event was cancelled</dt><dd><p>-&gt; False usually indicates that the event did not exist or had already been run</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.cancel_task_by_name">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">cancel_task_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.cancel_task_by_name" title="Permalink to this definition"></a></dt>
+<dd><p>Cancels all events in the queue with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event_name</strong> (<em>str</em>) – The name of the event to cancel</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether the function cancelled any events</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.create_repeating_wrapper">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">create_repeating_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">function</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.create_repeating_wrapper" title="Permalink to this definition"></a></dt>
+<dd><p>An internal helper function to make a function which reschedules itself.
+It also removes the event from the scheduled_updates array if it fails to run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>function</em>) – The function to schedule</p></li>
+<li><p><strong>event</strong> (<em>Event dictionary</em>) – <p>A dictionary containing event information
+It should contain</p>
+<blockquote>
+<div><ul>
+<li><p>event : Event id</p></li>
+<li><p>time : number</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function which acts as a wrapper for the original function.
+When called it calls the original function and then reschedules itself.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.create_wrapper">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">create_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">function</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.create_wrapper" title="Permalink to this definition"></a></dt>
+<dd><p>An internal helper function to remove the update from scheduled_updates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>function</em>) – The function to schedule</p></li>
+<li><p><strong>event</strong> (<em>Event dictionary</em>) – A dictionary containing event information
+It’s used to remove the event from scheduled_updates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function which acts as a wrapper for the original function.
+When called it calls the original function and then removes the event frm scheduled_updates.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.queue_task">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">queue_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.queue_task" title="Permalink to this definition"></a></dt>
+<dd><p>Queues a task in the scheduler with a relative time delay and
+attempts to start the scheduler if it is not already running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>function</em>) – The function to run after the given delay</p></li>
+<li><p><strong>update_time</strong> (<em>number</em>) – <dl class="simple">
+<dt>The absolute time that the function will run at</dt><dd><p>Timing is based on time.time, for 3 seconds in the future do time.time() + 3</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>repeat</strong> (<em>bool</em>) – Whether the event should repeat</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>Event</strong> –</p>
+<dl class="simple">
+<dt>A dictionary representing the event</dt><dd><ul class="simple">
+<li><p>name : str -&gt; name of the event</p></li>
+<li><p>time : number -&gt; time of the event (in seconds or absolute time)</p></li>
+<li><p>repeating : bool -&gt; whether the event repeats</p></li>
+<li><p>event : Event -&gt; the event id returned by the sched module</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Event dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.run_scheduler">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">run_scheduler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.scheduler.run_scheduler" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the tasks in the scheduler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="covid19dashboard.scheduler.scheduler">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.scheduler.</span></span><span class="sig-name descname"><span class="pre">scheduler</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;sched.scheduler</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#covid19dashboard.scheduler.scheduler" title="Permalink to this definition"></a></dt>
+<dd><p>list[Event]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>An array of scheduled updates</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-covid19dashboard">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-covid19dashboard" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harry Whittle.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
