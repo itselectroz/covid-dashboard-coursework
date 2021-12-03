@@ -105,7 +105,6 @@ The default configuration is as follows:
     "search_terms": "Covid COVID-19 coronavirus",
 
     "news_api_key": "a9bbf9fd5caa4b42a8a41a7113584e64",
-    "news_using_paid_plan": false,
 
     "resource_path": "../resources/",
     "static_path": "../static/",
@@ -150,4 +149,34 @@ The favicon image path relative to `/static/images/` (where /static/ is the stat
 
 ### Core
 
-**location** : string
+**location** : string  
+The location in which to query covid data for.
+The valid values for this config option depends on the value of location_type.
+
+**location_type** : string  
+The type of the location configuration option.
+Valid options can be found [here](https://coronavirus.data.gov.uk/details/developers-guide/main-api#params-filters) under the the areaType metric.
+
+**nation_location** : string  
+The national location to use for national data.
+Must be a valid nation in the UK.
+
+**search_terms** : string  
+A list of search terms separated by space used to query for news articles.
+The value `covid19 coronavirus` will be split into two queries, `covid19` and `coronavirus`.
+There is no way to include a space in a query.
+
+**news_api_key** : string  
+Your [news api key](https://newsapi.org/account).
+
+**resource_path** : string  
+The path to your resources folder.
+
+**static_path** : string  
+The path to your static folder.
+This folder is used for all static content on the dashboard, such as images.  
+All file paths in the [template](#template) configuration section are relative to `static_path/images/`.
+
+**inital_national_data_filename** : string  
+The path to the initial csv data file. This file is used to load initial data for the dashboard.  
+The path for this file is relative to `resource_path/`
