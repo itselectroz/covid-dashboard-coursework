@@ -29,12 +29,12 @@ from typing import Dict, List
 
 from flask import Flask, render_template, request
 
-import covid_data_handler
-import covid_news_handler
-import scheduler
+import src.covid_data_handler as covid_data_handler
+import src.covid_news_handler as covid_news_handler
+import src.scheduler as scheduler
 
-from config import get_config
-from logger import log_debug, log_error
+from src.config import get_config
+from src.logger import log_debug, log_error
 
 # Create our flask app
 app = Flask(

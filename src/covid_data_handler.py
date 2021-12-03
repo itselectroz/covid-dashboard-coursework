@@ -40,9 +40,9 @@ It defines the following internal functions
 from typing import Dict, List
 from uk_covid19 import Cov19API
 
-from config import get_config
-from logger import log_debug
-from scheduler import queue_task
+from src.config import get_config
+from src.logger import log_debug
+from src.scheduler import queue_task
 
 # Initial state
 covid_data = {

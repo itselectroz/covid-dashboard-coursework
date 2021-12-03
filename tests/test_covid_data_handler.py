@@ -10,7 +10,7 @@ These functions are:
  - schedule_covid_updates
 """
 
-from covid_data_handler import (
+from src.covid_data_handler import (
     parse_csv_data,
     process_covid_csv_data,
     find_first_valid_entry,

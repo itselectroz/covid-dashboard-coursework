@@ -24,9 +24,9 @@ from typing import Dict, List
 
 import requests
 
-from config import get_config
-from logger import log_debug, log_info
-from scheduler import queue_task
+from src.config import get_config
+from src.logger import log_debug, log_info
+from src.scheduler import queue_task
 
 news_articles: List[Dict] = []
 

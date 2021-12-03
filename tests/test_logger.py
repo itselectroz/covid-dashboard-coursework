@@ -8,8 +8,8 @@ like since they all use the print function.
 
 from os import path, remove
 
-import config
-import logger
+import src.config as config
+import src.logger as logger
 
 def reset_test_environment():
     """

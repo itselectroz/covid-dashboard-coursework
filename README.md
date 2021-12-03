@@ -13,6 +13,7 @@ Automatic covid dashboard for displaying accurate, up to date covid data and new
    - [Logging](#logging)
    - [Template](#template)
    - [Core](#core)
+ - [Testing](#testing)
 
 ## Features
 
@@ -46,7 +47,7 @@ Running the dashboard is easy. You have two options;
 
 Assuming you have python installed simply run
 
-    python src/main.py
+    python src/__main__.py
 
 ### Flask CLI
 
@@ -56,21 +57,23 @@ First you need to export the necessary variables
 
 #### CMD
 
-`set FLASK_APP="src/main.py"`
+`set FLASK_APP="src/__main__.py"`
 
 #### Powershell
 
-`$env:FLASK_APP="src/main.py"`
+`$env:FLASK_APP="src/__main__.py"`
 
 #### Bash
 
-`export FLASK_APP="src/main.py"`
+`export FLASK_APP="src/__main__.py"`
 
 ***
 
-Then finally run the app using
+Then run the app using
 
     flask run
+
+This will start the interface at `127.0.0.1:5000/index` which can simply be navigated to with any web browser.
 
 ## Config File
 
@@ -146,3 +149,5 @@ The logo image path relative to `/static/images/` (where /static/ is the static 
 The favicon image path relative to `/static/images/` (where /static/ is the static directory)  
 
 ### Core
+
+**location** : string
