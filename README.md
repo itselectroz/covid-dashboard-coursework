@@ -180,3 +180,37 @@ All file paths in the [template](#template) configuration section are relative t
 **inital_national_data_filename** : string  
 The path to the initial csv data file. This file is used to load initial data for the dashboard.  
 The path for this file is relative to `resource_path/`
+
+## Testing
+
+This project uses pytest for its testing.  
+All tests are inside the `/tests/` directory and have filenames according to the module it tests.
+e.g. `test_config.py` for the `config` module.  
+  
+### Running Tests
+
+Running the tests is a simple task.  
+Firstly ensure the `pytest` module is installed.  
+
+    pip install pytest
+
+After this, ensure you are in the root directory before running
+
+    pytest
+
+If this doesn't work try running `python -m pytest`
+
+### Adding Tests
+
+The tests for this project have a simple directory structure.
+
+Each test is inside a `test_$MODULE.py` file inside the `tests` directory.
+
+Each test inside those files is a function with the following naming convention.
+
+```python
+def test_$FUNCTION_$FEATURE():
+    assert condition
+```
+
+An example of this would be `test_log_error_makes_file`. This test tests a function called `log_error` and ensures that it makes a file.
