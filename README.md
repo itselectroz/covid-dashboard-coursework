@@ -51,7 +51,7 @@ Running the dashboard is easy. You have two options;
 
 Assuming you have python installed simply run
 
-    python src/__main__.py
+    python -m covid19dashboard
 
 ### Flask CLI
 
@@ -61,15 +61,15 @@ First you need to export the necessary variables
 
 #### CMD
 
-`set FLASK_APP="src/__main__.py"`
+`set FLASK_APP="covid19dashboard/__main__.py"`
 
 #### Powershell
 
-`$env:FLASK_APP="src/__main__.py"`
+`$env:FLASK_APP="covid19dashboard/__main__.py"`
 
 #### Bash
 
-`export FLASK_APP="src/__main__.py"`
+`export FLASK_APP="covid19dashboard/__main__.py"`
 
 ***
 

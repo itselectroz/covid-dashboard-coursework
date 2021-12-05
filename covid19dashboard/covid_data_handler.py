@@ -186,7 +186,7 @@ def covid_API_request(location = "Exeter", location_type = "ltla") -> Dict:
                     'areaCode': 'E92000001',
                     'newCasesBySpecimenDate': 547,
                     'hospitalCases': 7362,
-                    'cumDeaths60DaysByPublishDate': 141544
+                    'cumDailyNsoDeathsByDeathDate': 141544
                 },
                 ...
             ],
@@ -212,7 +212,7 @@ def covid_API_request(location = "Exeter", location_type = "ltla") -> Dict:
             "areaCode": "areaCode",
             "newCasesBySpecimenDate": "newCasesBySpecimenDate",
             "hospitalCases": "hospitalCases",
-            "cumDeaths60DaysByPublishDate": "cumDeaths60DaysByPublishDate"
+            "cumDailyNsoDeathsByDeathDate": "cumDailyNsoDeathsByDeathDate"
         }
     )
 
@@ -278,10 +278,10 @@ def perform_covid_update() -> None:
 
         # I experienced issues where the first few entries for cumulative deaths were None
         # This should fix that
-        first_deaths_index = find_first_valid_entry(nation_data, 'cumDeaths60DaysByPublishDate')
+        first_deaths_index = find_first_valid_entry(nation_data, 'cumDailyNsoDeathsByDeathDate')
         if first_deaths_index is not None:
             covid_data['nationalCumDeaths'] = (
-                nation_data[first_deaths_index]['cumDeaths60DaysByPublishDate']
+                nation_data[first_deaths_index]['cumDailyNsoDeathsByDeathDate']
             )
 
 def schedule_covid_updates(update_interval: float, update_name: str, repeat=False) -> Dict:
