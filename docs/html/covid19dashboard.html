@@ -41,7 +41,7 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-covid19dashboard.config">covid19dashboard.config module</a></li>
 <li><a class="reference internal" href="#module-covid19dashboard.covid_data_handler">covid19dashboard.covid_data_handler module</a></li>
-<li><a class="reference internal" href="#module-covid19dashboard.covid_news_handler">covid19dashboard.covid_news_handler module</a></li>
+<li><a class="reference internal" href="#module-covid19dashboard.covid_news_handling">covid19dashboard.covid_news_handler module</a></li>
 <li><a class="reference internal" href="#module-covid19dashboard.logger">covid19dashboard.logger module</a></li>
 <li><a class="reference internal" href="#module-covid19dashboard.scheduler">covid19dashboard.scheduler module</a></li>
 <li><a class="reference internal" href="#module-covid19dashboard">Module contents</a></li>
@@ -284,7 +284,7 @@ The type of location used:</p>
 ‘areaCode’: ‘E92000001’,
 ‘newCasesBySpecimenDate’: 547,
 ‘hospitalCases’: 7362,
-‘cumDeaths60DaysByPublishDate’: 141544</p>
+‘cumDailyNsoDeathsByDeathDate’: 141544</p>
 </dd>
 </dl>
 </dd>
@@ -391,9 +391,9 @@ Whether or not the update should repeat at the given update_interval</p></li>
 </dd></dl>
 
 </section>
-<section id="module-covid19dashboard.covid_news_handler">
-<span id="covid19dashboard-covid-news-handler-module"></span><h2>covid19dashboard.covid_news_handler module<a class="headerlink" href="#module-covid19dashboard.covid_news_handler" title="Permalink to this headline"></a></h2>
-<p>covid_news_handler</p>
+<section id="module-covid19dashboard.covid_news_handling">
+<span id="covid19dashboard-covid-news-handler-module"></span><h2>covid19dashboard.covid_news_handler module<a class="headerlink" href="#module-covid19dashboard.covid_news_handling" title="Permalink to this headline"></a></h2>
+<p>covid_news_handling</p>
 <p>This module is used for everything related to fetching covid news articles</p>
 <dl class="simple">
 <dt>It exports the following functions</dt><dd><ul class="simple">
@@ -437,8 +437,8 @@ Whether or not the update should repeat at the given update_interval</p></li>
 </dd>
 </dl>
 <dl class="py function">
-<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.add_removed_article">
-<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">add_removed_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.add_removed_article" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handling.add_removed_article">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handling.</span></span><span class="sig-name descname"><span class="pre">add_removed_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handling.add_removed_article" title="Permalink to this definition"></a></dt>
 <dd><p>This function adds an article to the removed list, preventing it from being
 displayed again.</p>
 <dl class="field-list simple">
@@ -456,8 +456,8 @@ It should contain the following fields</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.news_API_request">
-<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">news_API_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">covid_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Covid</span> <span class="pre">COVID-19</span> <span class="pre">coronavirus'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.news_API_request" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handling.news_API_request">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handling.</span></span><span class="sig-name descname"><span class="pre">news_API_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">covid_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Covid</span> <span class="pre">COVID-19</span> <span class="pre">coronavirus'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handling.news_API_request" title="Permalink to this definition"></a></dt>
 <dd><p>This function fetches news articles using newsapi based on the given search terms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -493,8 +493,8 @@ Each keyword is separated by a space.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.remove_article_by_title">
-<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">remove_article_by_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.remove_article_by_title" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handling.remove_article_by_title">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handling.</span></span><span class="sig-name descname"><span class="pre">remove_article_by_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handling.remove_article_by_title" title="Permalink to this definition"></a></dt>
 <dd><p>Removes an article from news_articles by the article’s title.
 It will also use add_removed_article to prevent the article from being shown again.</p>
 <dl class="field-list simple">
@@ -505,8 +505,8 @@ It will also use add_removed_article to prevent the article from being shown aga
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.schedule_news_updates">
-<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">schedule_news_updates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.schedule_news_updates" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handling.schedule_news_updates">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handling.</span></span><span class="sig-name descname"><span class="pre">schedule_news_updates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handling.schedule_news_updates" title="Permalink to this definition"></a></dt>
 <dd><p>Schedules a news update at the given interval with a given name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -527,8 +527,8 @@ Whether or not the update should repeat at the given update_interval</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="covid19dashboard.covid_news_handler.update_news">
-<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handler.</span></span><span class="sig-name descname"><span class="pre">update_news</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handler.update_news" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="covid19dashboard.covid_news_handling.update_news">
+<span class="sig-prename descclassname"><span class="pre">covid19dashboard.covid_news_handling.</span></span><span class="sig-name descname"><span class="pre">update_news</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#covid19dashboard.covid_news_handling.update_news" title="Permalink to this definition"></a></dt>
 <dd><p>This function replaces news_articles with updated and filtered articles</p>
 <p>It filters based on removed articles’ urls.</p>
 </dd></dl>

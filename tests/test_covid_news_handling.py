@@ -1,7 +1,7 @@
-"""test_covid_news_handler module
+"""test_covid_news_handling module
 
 This module exports functions intended to test the functionality of the
-covid_news_handler module.
+covid_news_handling module.
 
 The following functions are not testable for various reasons:
  - news_API_request
@@ -10,14 +10,14 @@ The following functions are not testable for various reasons:
  - remove_article_by_title
 """
 
-import covid19dashboard.covid_news_handler as covid_news_handler
+import covid19dashboard.covid_news_handling as covid_news_handling
 
 def reset_test_environment():
     """
     This function resets the test environment by resetting default values.
     """
-    covid_news_handler.news_articles = []
-    covid_news_handler.removed_articles = []
+    covid_news_handling.news_articles = []
+    covid_news_handling.removed_articles = []
 
 def test_add_removed_article():
     """
@@ -30,6 +30,13 @@ def test_add_removed_article():
         "url": test_url
     }
 
-    covid_news_handler.add_removed_article(test_article)
+    covid_news_handling.add_removed_article(test_article)
 
-    assert covid_news_handler.removed_articles == [ test_url ]
+    assert covid_news_handling.removed_articles == [ test_url ]
+
+def test_news_API_request():
+    assert covid_news_handling.news_API_request()
+    assert covid_news_handling.news_API_request('Covid COVID-19 coronavirus') == covid_news_handling.news_API_request()
+
+def test_update_news():
+    covid_news_handling.update_news('test')

@@ -1,4 +1,4 @@
-"""covid_news_handler
+"""covid_news_handling
 
 This module is used for everything related to fetching covid news articles
 
@@ -107,7 +107,7 @@ def news_API_request(covid_terms = "Covid COVID-19 coronavirus") -> List[Dict]:
 
     return articles
 
-def update_news() -> None:
+def update_news(terms: str = None) -> None:
     """
     This function replaces news_articles with updated and filtered articles
 
@@ -117,7 +117,7 @@ def update_news() -> None:
 
     log_info("Performing news update...")
 
-    articles = news_API_request(get_config("search_terms"))
+    articles = news_API_request(terms or get_config("search_terms"))
 
     filtered_articles = []
 

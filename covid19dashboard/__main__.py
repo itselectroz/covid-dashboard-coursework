@@ -29,7 +29,7 @@ from typing import Dict, List
 
 from flask import Flask, render_template, request
 
-from . import covid_data_handler, covid_news_handler, scheduler
+from . import covid_data_handler, covid_news_handling, scheduler
 
 from .config import get_config
 from .logger import log_debug, log_error
@@ -126,7 +126,7 @@ def handle_add_update(args) -> None:
         covid_data_handler.schedule_covid_updates(new_time, name, repeat=repeat)
 
     if news:
-        covid_news_handler.schedule_news_updates(new_time, name, repeat=repeat)
+        covid_news_handling.schedule_news_updates(new_time, name, repeat=repeat)
 
 
 def handle_remove_update(args) -> None:
@@ -161,7 +161,7 @@ def handle_remove_news_article(args) -> None:
     """
     article_title = args.get('notif')
 
-    covid_news_handler.remove_article_by_title(article_title)
+    covid_news_handling.remove_article_by_title(article_title)
 
 @app.route('/')
 @app.route('/index')
@@ -237,7 +237,7 @@ def index() -> str:
 
         updates=updates,
         # Limit the number of news articles to 6
-        news_articles = covid_news_handler.news_articles[:5]
+        news_articles = covid_news_handling.news_articles[:5]
     )
 
 def main() -> None:
@@ -269,7 +269,7 @@ def main() -> None:
 
     # Schedule an initial update
     covid_data_handler.schedule_covid_updates(time.time(), "Initial Covid Update", repeat=False)
-    covid_news_handler.schedule_news_updates(time.time(), "Initial News Update", repeat=False)
+    covid_news_handling.schedule_news_updates(time.time(), "Initial News Update", repeat=False)
 
 # Don't run this code if the module is just imported
 if __name__ == '__main__':

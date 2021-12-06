@@ -23,7 +23,7 @@ covid19dashboard.covid\_data\_handler module
 covid19dashboard.covid\_news\_handler module
 --------------------------------------------
 
-.. automodule:: covid19dashboard.covid_news_handler
+.. automodule:: covid19dashboard.covid_news_handling
    :members:
    :undoc-members:
    :show-inheritance:
