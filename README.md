@@ -123,7 +123,7 @@ The default configuration is as follows:
 
     "search_terms": "Covid COVID-19 coronavirus",
 
-    "news_api_key": "a9bbf9fd5caa4b42a8a41a7113584e64",
+    "news_api_key": "news-api-key",
 
     "resource_path": "../resources/",
     "static_path": "../static/",
