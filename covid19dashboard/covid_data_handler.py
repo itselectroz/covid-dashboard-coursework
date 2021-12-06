@@ -41,7 +41,7 @@ from typing import Dict, List
 from uk_covid19 import Cov19API
 
 from .config import get_config
-from .logger import log_debug
+from .logger import log_debug, log_info
 from .scheduler import queue_task
 
 # Initial state
@@ -242,6 +242,8 @@ def calculate_7_day_cases(data: List[Dict]) -> int:
     int
         The cumulative number of cases over 7 days
     """
+    log_debug("Calculating 7 day cases")
+
     cumulative_cases = 0
     first_valid_index = find_first_valid_entry(data, 'newCasesBySpecimenDate')
 
@@ -256,7 +258,7 @@ def perform_covid_update() -> None:
 
     It uses & modifies the covid_data global variable.
     """
-    log_debug("Performing covid data update...")
+    log_info("Performing covid data update...")
 
     local_response = covid_API_request(get_config('location'), get_config('location_type'))
     nation_response = covid_API_request(get_config('nation_location'), 'nation')
@@ -306,10 +308,12 @@ def schedule_covid_updates(update_interval: float, update_name: str, repeat=Fals
         See scheduler.queue_task
     """
 
+    log_debug(f"Queueing new covid update {update_name}")
+
     update_entry = queue_task(update_name, perform_covid_update, update_interval, repeat=repeat)
 
     update_entry['type'] = "Covid"
 
-    log_debug(f"Successfully scheduled covid update {update_name}")
+    log_info(f"Successfully scheduled covid update {update_name}")
 
     return update_entry

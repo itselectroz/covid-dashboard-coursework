@@ -103,7 +103,7 @@ def news_API_request(covid_terms = "Covid COVID-19 coronavirus") -> List[Dict]:
 
         articles += result['articles']
 
-    log_debug(f"Finished news request. Found {len(articles)} articles")
+    log_info(f"Finished news request. Found {len(articles)} articles")
 
     return articles
 
@@ -114,6 +114,8 @@ def update_news() -> None:
     It filters based on removed articles' urls.
     """
     global news_articles
+
+    log_info("Performing news update...")
 
     articles = news_API_request(get_config("search_terms"))
 
@@ -137,6 +139,8 @@ def add_removed_article(article: Dict) -> None:
         It should contain the following fields
          * url : str
     """
+    log_debug(f"Adding removed article {article['url']}")
+
     # Removed articles are stored by URL since it is the most unique identifier of an article.
     removed_articles.append(article["url"])
 
@@ -150,6 +154,7 @@ def remove_article_by_title(title: str) -> None:
     title : str
         The title of the article to remove
     """
+    log_debug(f"Removing article with title {title}")
     for article in news_articles:
         if article['title'] == title:
             news_articles.remove(article)
@@ -177,10 +182,13 @@ def schedule_news_updates(update_interval: float, update_name: str, repeat=False
     event : Event dictionary
         See scheduler.queue_task
     """
+
+    log_debug(f"Queueing news update {update_news}")
+
     update_entry = queue_task(update_name, update_news, update_interval, repeat=repeat)
 
     update_entry['type'] = "News"
 
-    log_debug(f"Successfully scheduled news update {update_name}")
+    log_info(f"Successfully scheduled news update {update_name}")
 
     return update_entry

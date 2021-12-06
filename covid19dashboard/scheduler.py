@@ -33,7 +33,7 @@ import time
 from types import FunctionType
 from typing import Dict
 
-from .logger import log_error
+from .logger import log_debug, log_error, log_info
 
 scheduler = sched.scheduler(time.time, time.sleep)
 
@@ -54,6 +54,7 @@ def run_scheduler() -> None:
     -------
     None
     """
+    log_debug("Running scheduler.")
     try:
         scheduler.run(blocking=False)
     except Exception as err:
@@ -79,6 +80,7 @@ def create_wrapper(function: FunctionType, event: Dict) -> FunctionType:
         When called it calls the original function and then removes the event frm scheduled_updates.
     """
     def wrapped_function() -> None:
+        log_debug(f"Running update {event['name']}")
         try:
             function()
         except Exception as err:
@@ -113,6 +115,7 @@ def create_repeating_wrapper(function: FunctionType, event: Dict) -> FunctionTyp
 
     """
     def wrapped_function() -> None:
+        log_debug(f"Running repeated update {event['name']}")
         try:
             function()
         except Exception as err:
@@ -151,6 +154,8 @@ def queue_task(name: str, function: FunctionType, update_time: float, repeat=Fal
             - repeating : bool -> whether the event repeats
             - event : Event -> the event id returned by the sched module
     """
+
+    log_debug(f"Scheduler queue task called for update '{name}'")
 
     event = {
         "name": name,
@@ -191,6 +196,7 @@ def cancel_task(event: Dict) -> bool:
         Whether or not the event was cancelled
             -> False usually indicates that the event did not exist or had already been run
     """
+    log_debug("Cancel task called")
     try:
         scheduler.cancel(event["event"])
         scheduled_updates.remove(event)
@@ -212,6 +218,8 @@ def cancel_task_by_name(event_name: str) -> bool:
     bool
         Whether the function cancelled any events
     """
+    log_debug(f"Cancel task with name '{event_name}'")
+
     # We loop backwards here since we are removing items from
     # the array. If we were to loop forwards we would skip values.
 
