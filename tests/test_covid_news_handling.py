@@ -10,7 +10,10 @@ The following functions are not testable for various reasons:
  - remove_article_by_title
 """
 
-import covid19dashboard.covid_news_handling as covid_news_handling
+import os
+
+from covid19dashboard import covid_news_handling
+from covid19dashboard.config import get_config
 
 def reset_test_environment():
     """
@@ -18,6 +21,9 @@ def reset_test_environment():
     """
     covid_news_handling.news_articles = []
     covid_news_handling.removed_articles = []
+
+    config = get_config()
+    config["news_api_key"] =  os.environ["NEWS_API_KEY"]
 
 def test_add_removed_article():
     """
@@ -35,8 +41,15 @@ def test_add_removed_article():
     assert covid_news_handling.removed_articles == [ test_url ]
 
 def test_news_API_request():
+    reset_test_environment()
+
     assert covid_news_handling.news_API_request()
-    assert covid_news_handling.news_API_request('Covid COVID-19 coronavirus') == covid_news_handling.news_API_request()
+    assert (
+        covid_news_handling.news_API_request('Covid COVID-19 coronavirus')
+        == covid_news_handling.news_API_request()
+    )
 
 def test_update_news():
+    reset_test_environment()
+
     covid_news_handling.update_news('test')

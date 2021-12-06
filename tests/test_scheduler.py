@@ -14,7 +14,7 @@ The same applies to cancel_task_by_name as it uses cancel_task
 import sched
 import time
 
-import covid19dashboard.scheduler as scheduler
+from covid19dashboard import scheduler
 
 def reset_test_environment():
     """

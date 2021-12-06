@@ -25,5 +25,7 @@ jobs:
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
+      env:
+        NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
       run: |
         pytest

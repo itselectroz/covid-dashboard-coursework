@@ -3,7 +3,7 @@
 This module exports functions for testing the config.py module
 """
 
-import covid19dashboard.config as config
+from covid19dashboard import config
 
 def reset_test_environment():
     """
