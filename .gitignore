@@ -3,3 +3,7 @@ __pycache__
 logging
 test-data/test-log.log
 .DS_STORE
+
+build
+covid19_dashboard_pkg_hwhittle.egg-info
+dist
