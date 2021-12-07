@@ -8,6 +8,8 @@ Automatic covid dashboard for displaying accurate, up to date covid data and new
 
 Documentation can be found [here](https://itselectroz.github.io/covid-dashboard-coursework).
 
+This project is hosted on [GitHub](https://github.com/itselectroz/covid-dashboard-coursework)
+
 ## Table of Contents
 
  - [Features](#features)
