@@ -40,6 +40,14 @@ Ensure pip is up to date
 
     python -m pip install –upgrade pip
 
+### Using pip
+
+Simply run
+
+    pip install covid19-dashboard-pkg-hwhittle
+
+### From Source
+
 Install the required pip modules using the following command
 
     python -m pip install -r requirements.txt
@@ -53,7 +61,7 @@ Running the dashboard is easy. You have two options;
 
 ### Main Module
 
-Assuming you have python installed simply run
+Assuming you have python and this module installed simply run in a directory with a `config.json` file in it
 
     python -m covid19dashboard
 
