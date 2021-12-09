@@ -2,7 +2,7 @@
 
 ![Build status](https://github.com/itselectroz/covid-dashboard-coursework/actions/workflows/python-test.yml/badge.svg)
 [![Documentation](https://img.shields.io/badge/docs-%20sphinx-blue)](https://itselectroz.github.io/covid-dashboard-coursework)
-[![PyPI](https://img.shields.io/pypi/v/covid19-dashboard-pkg-hwhittle)](https://pypi.org/project/covid19-dashboard-pkg-hwhittle/0.0.3/)
+[![PyPI](https://img.shields.io/pypi/v/covid19-dashboard-pkg-hwhittle)](https://pypi.org/project/covid19-dashboard-pkg-hwhittle)
 
 Automatic covid dashboard for displaying accurate, up to date covid data and news.
 
