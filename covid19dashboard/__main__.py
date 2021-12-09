@@ -23,7 +23,7 @@ It uses the following internal functions:
 
 import time
 
-from os import path
+from os import path, getcwd
 from datetime import datetime, timedelta
 from typing import Dict, List
 
@@ -37,8 +37,8 @@ from .logger import log_debug, log_error
 # Create our flask app
 app = Flask(
     __name__,
-    template_folder=path.join(get_config('resource_path'), 'templates'),
-    static_folder=path.join(get_config('static_path'))
+    template_folder=path.join(getcwd(), get_config('resource_path'), 'templates'),
+    static_folder=path.join(getcwd(), get_config('static_path'))
 )
 
 def generate_update_content(updates: List[Dict]) -> str:
