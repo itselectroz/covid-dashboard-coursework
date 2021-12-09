@@ -240,7 +240,7 @@ def index() -> str:
 
         updates=updates,
         # Limit the number of news articles to 6
-        news_articles = covid_news_handling.news_articles[:5]
+        news_articles = covid_news_handling.news_articles[:template_config["news_article_count"]]
     )
 
 def main() -> None:

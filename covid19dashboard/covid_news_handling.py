@@ -75,11 +75,11 @@ def news_API_request(covid_terms = "Covid COVID-19 coronavirus") -> List[Dict]:
         #   'totalResults': number,
         #   'articles': NewsArticle[]
         # }
-        request = requests.get("https://newsapi.org/v2/top-headlines", {
+        request = requests.get("https://newsapi.org/v2/everything", {
             "apiKey": get_config('news_api_key'),
-            "q": term.lower(),
+            "qInTitle": term.lower(),
             "pageSize": 100,
-            "language": "en",
+            "language": get_config("language_code"),
             "page": 1
         })
 
@@ -122,7 +122,9 @@ def update_news(terms: str = None) -> None:
     filtered_articles = []
 
     for article in articles:
-        if article["url"] not in removed_articles:
+        # I was having issues with content being none sometimes, 
+        # the second part of this if statement will fix that
+        if article["url"] not in removed_articles and article["content"] is not None:
             filtered_articles.append(article)
 
     news_articles = filtered_articles

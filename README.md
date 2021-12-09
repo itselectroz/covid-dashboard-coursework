@@ -132,11 +132,12 @@ The default configuration is as follows:
     "nation_location": "England",
 
     "search_terms": "Covid COVID-19 coronavirus",
+    "language_code": "en",
 
     "news_api_key": "news-api-key",
 
-    "resource_path": "../resources/",
-    "static_path": "../static/",
+    "resource_path": "./resources/",
+    "static_path": "./static/",
 
     "inital_national_data_filename": "nation_2021-10-28.csv"
 }
@@ -174,7 +175,10 @@ The title to display at the top of the template page.
 The logo image path relative to `/static/images/` (where /static/ is the static directory)  
 
 **favicon** : string  
-The favicon image path relative to `/static/images/` (where /static/ is the static directory)  
+The favicon image path relative to `/static/images/` (where /static/ is the static directory)
+
+**news_article_count** : number
+The number of news articles to show on the screen at any given time.
 
 ### Core
 
@@ -194,6 +198,10 @@ Must be a valid nation in the UK.
 A list of search terms separated by space used to query for news articles.
 The value `covid19 coronavirus` will be split into two queries, `covid19` and `coronavirus`.
 There is no way to include a space in a query.
+
+**language_code** : string
+The 2-letter ISO-639-1 code of the language you want to get headlines for.
+Possible options: `ar` `de` `en` `es` `fr` `he` `it` `nl` `no` `pt` `ru` `se` `ud` `zh`.
 
 **news_api_key** : string  
 Your [news api key](https://newsapi.org/account).
