@@ -27,7 +27,7 @@ from os import path
 from datetime import datetime, timedelta
 from typing import Dict, List
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, Markup
 
 from . import covid_data_handler, covid_news_handling, scheduler
 
@@ -65,16 +65,16 @@ def generate_update_content(updates: List[Dict]) -> str:
         if update["repeating"]:
             update_string += (
                 f"{update['type']} update occuring at "
-                f"{time.strftime('%H:%M:%S', time.localtime(update['time']))} every day.\t"
+                f"{time.strftime('%H:%M:%S', time.localtime(update['time']))} every day.<br>"
             )
         else:
             update_string += (
                 f"{update['type']} update occuring at "
                 f"{time.strftime('%H:%M:%S', time.localtime(update['time']))} on "
-                f"{time.strftime('%d-%m-%Y', time.localtime(update['time']))}.\t"
+                f"{time.strftime('%d-%m-%Y', time.localtime(update['time']))}.<br>"
             )
 
-    return update_string
+    return Markup(update_string)
 
 
 def handle_add_update(args) -> None:
@@ -191,6 +191,9 @@ def index() -> str:
             handle_remove_news_article(request.args)
     except Exception as err:
         log_error("Unexpected error", err)
+
+    if(len(request.args.keys())):
+        return redirect('/')
 
     scheduler.run_scheduler()
 
