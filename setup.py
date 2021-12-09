@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="covid19-dashboard-pkg-hwhittle",
-    version="0.0.4",
+    version="0.0.5",
     author="Harry Whittle",
     author_email="harry.whittle@cwgsy.net",
     description="A personalisable UK COVID-19 Dashboard used for demonstration purposes.",
