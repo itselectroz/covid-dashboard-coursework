@@ -32,7 +32,7 @@ from flask import Flask, render_template, request, redirect, Markup
 from . import covid_data_handler, covid_news_handling, scheduler
 
 from .config import get_config
-from .logger import log_debug, log_error
+from .logger import log_debug, log_error, log_info
 
 # Create our flask app
 app = Flask(
@@ -250,6 +250,8 @@ def main() -> None:
      - a news update
      - a covid data update
     """
+    log_info("------ APPLICATION LAUNCH ------")
+
     # Initiate national data from spreadsheet
     try:
         csv_filename = path.join(
