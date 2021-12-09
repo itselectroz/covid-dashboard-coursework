@@ -11,5 +11,26 @@
         "use_file": true,
         "dump_debug_on_error": true,
         "dump_debug_count": 10
-    }
+    },
+
+    "template": {
+        "title": "COVID-19 UK Dashboard",
+        "logo": "logo.webp",
+        "favicon": "favicon.webp",
+        "news_article_count": 6
+    },
+
+    "location": "Exeter",
+    "location_type": "ltla",
+    "nation_location": "England",
+
+    "search_terms": "Covid COVID-19 coronavirus",
+    "language_code": "en",
+
+    "news_api_key": "news-api-key",
+
+    "resource_path": "./resources/",
+    "static_path": "./static/",
+
+    "inital_national_data_filename": "nation_2021-10-28.csv"
 }

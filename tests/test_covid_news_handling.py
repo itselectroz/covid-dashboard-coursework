@@ -23,7 +23,8 @@ def reset_test_environment():
     covid_news_handling.removed_articles = []
 
     config = get_config()
-    config["news_api_key"] = os.environ["NEWS_API_KEY"]
+    if "NEWS_API_KEY" in os.environ:
+        config["news_api_key"] = os.environ["NEWS_API_KEY"]
 
 def test_add_removed_article():
     """
